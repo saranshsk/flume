@@ -1,0 +1,50 @@
+
+
+
+Starting the flume services:
+
+assist@assist-namenode001:/usr/local/flume$ ./bin/flume-ng agent --conf conf -conf-file conf/flume-kafka-source-hdfs-sink.conf --name agent1
+Info: Sourcing environment configuration script /usr/local/flume/conf/flume-env.sh
+Info: Including Hadoop libraries found via (/usr/local/hadoop/bin/hadoop) for HDFS access
+Info: Including Hive libraries found via () for Hive access
++ exec /usr/lib/jvm/java-8-openjdk-amd64/bin/java -Xmx20m -cp '/usr/local/flume/conf:/usr/local/flume/lib/*:/usr/local/hadoop/etc/hadoop:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/contrib/capacity-scheduler/*.jar:/lib/*' -Djava.library.path=:/usr/local/hadoop/lib/native org.apache.flume.node.Application -conf-file conf/flume-kafka-source-hdfs-sink.conf --name agent1
+
+
+
+Directory created under hdfs:
+
+assist@assist-namenode001:/usr/local/hadoop$ hadoop fs -ls  hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/
+Found 31 items
+-rw-r--r--   2 assist supergroup       7124 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361883
+-rw-r--r--   2 assist supergroup       7184 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361884
+-rw-r--r--   2 assist supergroup       7192 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361885
+-rw-r--r--   2 assist supergroup       7108 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361886
+-rw-r--r--   2 assist supergroup       7243 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361887
+-rw-r--r--   2 assist supergroup       7315 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361888
+-rw-r--r--   2 assist supergroup       7251 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361889
+-rw-r--r--   2 assist supergroup       7457 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361890
+-rw-r--r--   2 assist supergroup       7298 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361891
+-rw-r--r--   2 assist supergroup       7123 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361892
+-rw-r--r--   2 assist supergroup       7230 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361893
+-rw-r--r--   2 assist supergroup       7362 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361894
+-rw-r--r--   2 assist supergroup       7149 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361895
+-rw-r--r--   2 assist supergroup       7464 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361896
+-rw-r--r--   2 assist supergroup       7289 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361897
+-rw-r--r--   2 assist supergroup       7228 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361898
+-rw-r--r--   2 assist supergroup       7152 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361899
+-rw-r--r--   2 assist supergroup       7140 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361900
+-rw-r--r--   2 assist supergroup       7053 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361901
+-rw-r--r--   2 assist supergroup       7164 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361902
+-rw-r--r--   2 assist supergroup       7114 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361903
+-rw-r--r--   2 assist supergroup       7340 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361904
+-rw-r--r--   2 assist supergroup       7268 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361905
+-rw-r--r--   2 assist supergroup       7099 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361906
+-rw-r--r--   2 assist supergroup       7375 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361907
+-rw-r--r--   2 assist supergroup       7255 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361908
+-rw-r--r--   2 assist supergroup       7291 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361909
+-rw-r--r--   2 assist supergroup       7373 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361910
+-rw-r--r--   2 assist supergroup       7183 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361911
+-rw-r--r--   2 assist supergroup       7167 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361912
+-rw-r--r--   2 assist supergroup      27447 2018-03-14 13:46 hdfs://assist-namenode001:10001/data/raw/airports/18-03-14/FlumeData.1521015361913
+assist@assist-namenode001:/usr/local/hadoop$ 
+
